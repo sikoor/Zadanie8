@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Zadania - tablice JavaScript</title>
+</head>
+<body>
+
+<h1>Zadania - tablice JavaScript</h1>
+
+<h2>1. Tablice tab1, tab2, tab3</h2>
+<button onclick="zad1()">Wykonaj zadanie 1</button>
+
+
+
+<h2>Wyniki:</h2>
+<pre id="wynik"></pre>
+
+<script>
+let litery = [];
+let liczby = [];
+let A = [];
+
+function pokaz(tekst) {
+    document.getElementById("wynik").textContent = tekst;
+}
+
+// ZADANIE 1
+function zad1() {
+    let tab1 = [7, 3, 1, 6, 9, 5, 4, 10, 2, 2];
+
+    let tekst = "tab1: " + tab1 + "\n";
+    tekst += "5. komórka: " + tab1[4] + "\n";
+
+    tab1[6] = 12;
+    tekst += "tab1 po zmianie 7. komórki: " + tab1 + "\n";
+
+    let tab2 = [...tab1];
+    tekst += "tab2: " + tab2 + "\n";
+
+    let tab3 = [];
+    for (let i = 0; i < tab1.length; i++) {
+        tab3[i] = tab1[i] + tab2[i];
+    }
+    tekst += "tab3 (sumy): " + tab3 + "\n";
+
+    tab2 = [...tab1].reverse();
+    tekst += "tab2 w odwrotnej kolejności: " + tab2;
+
+    pokaz(tekst);
+}
